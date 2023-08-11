@@ -16,37 +16,37 @@ public class Star : MonoBehaviour
     private Rigidbody2D rb;
     private bool isFalling = false;
     private bool countdownStarted = false;
-    private bool hasTouchedGround = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;  // Initially, disable gravity so the object doesn't fall
+        Invoke("StartFalling", Random.Range(minWaitTime, maxWaitTime));
     }
 
-    private void Update()
-    {
-        // Check if the object has touched the ground and stopped moving
-        if (hasTouchedGround && rb.velocity.magnitude < 0.01f)
-        {
-            Destroy(gameObject);
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (!countdownStarted && collision.gameObject.name == "TriggerStarfall")
+    //     {
+    //         // Set a random time before the object starts falling
+    //         Invoke("StartFalling", Random.Range(minWaitTime, maxWaitTime));
+    //         countdownStarted = true;
+    //     }
+    // }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!countdownStarted && collision.gameObject.name == "TriggerStarfall")
-        {
-            // Set a random time before the object starts falling
-            Invoke("StartFalling", Random.Range(minWaitTime, maxWaitTime));
-            countdownStarted = true;
-        }
-    }
-
-    private void StartFalling()
+    public void StartFalling()
     {
         rb.gravityScale = Random.Range(minGravityScale, maxGravityScale);  // Randomize gravity scale
         isFalling = true;
+    }
+
+        // New method to stop the object from falling
+    public void StopFalling()
+    {   
+        CancelInvoke("StartFalling");
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.gravityScale = 0;
+        isFalling = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -55,7 +55,6 @@ public class Star : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, bounceForce);
             isFalling = false;
-            hasTouchedGround = true;
         }
     }
 }
