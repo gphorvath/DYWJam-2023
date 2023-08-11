@@ -15,7 +15,6 @@ public class Star : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isFalling = false;
-    private bool countdownStarted = false;
 
     private void Start()
     {
@@ -23,16 +22,6 @@ public class Star : MonoBehaviour
         rb.gravityScale = 0;  // Initially, disable gravity so the object doesn't fall
         Invoke("StartFalling", Random.Range(minWaitTime, maxWaitTime));
     }
-
-    // private void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     if (!countdownStarted && collision.gameObject.name == "TriggerStarfall")
-    //     {
-    //         // Set a random time before the object starts falling
-    //         Invoke("StartFalling", Random.Range(minWaitTime, maxWaitTime));
-    //         countdownStarted = true;
-    //     }
-    // }
 
     public void StartFalling()
     {
