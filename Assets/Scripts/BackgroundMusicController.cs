@@ -1,14 +1,16 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI; // Required for UI elements
 
 public class BackgroundMusicController : MonoBehaviour
 {
-    public AudioClip[] tracks;        // List of audio tracks
+    public AudioClip[] tracks;
     private int currentTrack = 0;
     private AudioSource audioSource;
-    public float fadeDuration = 1f;  // Duration for fade in/out
+    public float fadeDuration = 1f;
+    private bool transitioning = false;
 
-    private bool transitioning = false; // To avoid multiple transition calls
+    public Slider playbackSlider; // The UI Slider for visualizing playback progress
 
     void Start()
     {
@@ -28,6 +30,12 @@ public class BackgroundMusicController : MonoBehaviour
         {
             PlayNextTrack();
             transitioning = true;
+        }
+
+        // Update the slider value based on playback progress
+        if (audioSource.clip)
+        {
+            playbackSlider.value = audioSource.time / audioSource.clip.length;
         }
     }
 
