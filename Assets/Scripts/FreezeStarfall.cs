@@ -4,6 +4,8 @@ public class FreezeStarfall : MonoBehaviour
 {
     public StarfallSpawner starfallSpawner; // Reference to the StarfallSpawner script
 
+    public GameObject door; // Reference to the door object
+
     private bool onCooldown = false; // Flag to check if the script is on cooldown
     private float cooldownDuration = 3f; // Duration for which the script should stay on cooldown
 
@@ -14,6 +16,11 @@ public class FreezeStarfall : MonoBehaviour
         // Assuming your player has the tag "Player", adjust if necessary
         if (!onCooldown && collision.CompareTag("Player"))
         {
+            if(!starsAreFrozen)
+            {
+                door.SetActive(false);
+            }
+
             // Toggle the state of the stars and the spawning
             starsAreFrozen = !starsAreFrozen;
             if (starfallSpawner)
