@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2176471168073576068}
-  - component: {fileID: 8730815495956829}
   - component: {fileID: 3954886309277348038}
   - component: {fileID: 8736713208758769143}
+  - component: {fileID: 27366098468384913}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -34,19 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8730815495956829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5447972367832022301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c038a2caf57476429ccc75be336666a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneToLoad: Start
 --- !u!212 &3954886309277348038
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,3 +121,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0.010076523, y: -0.007071972}
   m_Size: {x: 0.69430923, y: 1.7503786}
   m_Direction: 0
+--- !u!114 &27366098468384913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447972367832022301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5a3625900adf64aa4c662842e52bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelName: Start

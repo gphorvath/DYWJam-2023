@@ -31,9 +31,12 @@ public class BackgroundMusicController : MonoBehaviour
             PlayNextTrack();
             transitioning = true;
         }
+    }
 
+    void FixedUpdate()
+    {
         // Update the slider value based on playback progress
-        if (audioSource.clip)
+        if (playbackSlider && audioSource.clip)
         {
             playbackSlider.value = audioSource.time / audioSource.clip.length;
         }
