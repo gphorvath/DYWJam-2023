@@ -71,7 +71,7 @@ public class Leaderboard : MonoBehaviour
     void DisplayLeaderboardForLevel(string level)
     {
         leaderboardText.text = "";
-        var entriesForLevel = leaderboardEntries.Where(e => e.levelName == level).ToList();
+        var entriesForLevel = leaderboardEntries.Where(e => e.levelName == level).OrderBy(e => e.time).ToList();
 
         for (int i = 0; i < entriesForLevel.Count; i++)
         {

@@ -3,7 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class EndLevelTrigger : MonoBehaviour
 {
-    public string nextLevelName = "Start"; // Specify the name of the next level here
+    public string nextLevelName = "Start";
+    public AudioSource audioSource;
+    public AudioClip soundEffect;
 
     private bool levelEnded = false;
 
@@ -19,6 +21,8 @@ public class EndLevelTrigger : MonoBehaviour
                 timer.StopLevel();
             }
 
+            PlaySoundEffect();
+
             Debug.Log($"Setup end level buttons for {nextLevelName}");
 
             Leaderboard.Instance.SetupEndLevelButtons(nextLevelName);
@@ -26,6 +30,16 @@ public class EndLevelTrigger : MonoBehaviour
 
             // Deactivate this game object after processing everything
             gameObject.SetActive(false);
+        }
+    }
+
+    private void PlaySoundEffect()
+    {
+        if (audioSource && soundEffect)
+        {
+            Debug.Log("Playing sound effect");
+            audioSource.clip = soundEffect;
+            audioSource.Play();
         }
     }
 }

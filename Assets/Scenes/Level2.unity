@@ -1507,6 +1507,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 3940470765529708792, guid: 1d220bd8384bf344e9ca66afbe3f618b, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 6855516967248625878}
+    - target: {fileID: 3940470765529708792, guid: 1d220bd8384bf344e9ca66afbe3f618b, type: 3}
+      propertyPath: starfallSpawner
+      value: 
+      objectReference: {fileID: 1007750975}
+    - target: {fileID: 4652811236359434943, guid: 1d220bd8384bf344e9ca66afbe3f618b, type: 3}
+      propertyPath: nextLevelName
+      value: Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 5342932312492258158, guid: 1d220bd8384bf344e9ca66afbe3f618b, type: 3}
       propertyPath: m_Name
       value: PortalPuzzle
@@ -1536,6 +1548,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d220bd8384bf344e9ca66afbe3f618b, type: 3}
+--- !u!1 &6855516967248625878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9188612673799756784, guid: 1d220bd8384bf344e9ca66afbe3f618b, type: 3}
+  m_PrefabInstance: {fileID: 6855516967248625877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7019314029603877861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1544,6 +1561,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1135504195635758081, guid: 319e7338c87653a4aa57a8ee9daea7db, type: 3}
+      propertyPath: maxSpawnedStars
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 1135504195635758081, guid: 319e7338c87653a4aa57a8ee9daea7db, type: 3}
+      propertyPath: maxSpawnInterval
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1135504195635758081, guid: 319e7338c87653a4aa57a8ee9daea7db, type: 3}
       propertyPath: spawnAreaCenter.y
       value: 25
@@ -1609,6 +1634,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4020950530609319121, guid: f578b14364ec386449a36ce5dafcf0fb, type: 3}
+      propertyPath: m_Color.b
+      value: 0.71132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020950530609319121, guid: f578b14364ec386449a36ce5dafcf0fb, type: 3}
+      propertyPath: m_Color.g
+      value: 0.71132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020950530609319121, guid: f578b14364ec386449a36ce5dafcf0fb, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4990595704137906389, guid: f578b14364ec386449a36ce5dafcf0fb, type: 3}
       propertyPath: m_Name
       value: Player

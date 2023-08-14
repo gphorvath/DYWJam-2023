@@ -18,6 +18,7 @@ public class BackgroundMusicController : MonoBehaviour
 
         if (tracks.Length > 0)
         {
+            currentTrack = Random.Range(0, tracks.Length);
             audioSource.clip = tracks[currentTrack];
             audioSource.Play();
         }
@@ -44,6 +45,7 @@ public class BackgroundMusicController : MonoBehaviour
 
     void PlayNextTrack()
     {
+        currentTrack = Random.Range(0, tracks.Length);
         StartCoroutine(FadeOutAndPlayNext());
     }
 

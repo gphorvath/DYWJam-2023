@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870727822152647828}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.9965525, y: 5.7962084, z: -8.591512}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6888874618606251269
 MonoBehaviour:
@@ -46,9 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracks:
-  - {fileID: 8300000, guid: e807a3f58e2febf48b3a3f4b81285551, type: 3}
-  - {fileID: 8300000, guid: 92fc7ce8b8ab13045b8a5d9595b677f6, type: 3}
-  - {fileID: 8300000, guid: b087419de644f974ba08b90b456943c5, type: 3}
+  - {fileID: 8300000, guid: 67bf4a4d378664f4ea00dea359d8a663, type: 3}
+  - {fileID: 8300000, guid: 487a320f5e1ab79488e1e1fd3d1de6e2, type: 3}
+  - {fileID: 8300000, guid: 36b2ff89d2a3c7e4cac4c20c66472202, type: 3}
+  - {fileID: 8300000, guid: a4e33d3e86c262c489fdd971b2a6b892, type: 3}
+  - {fileID: 8300000, guid: 35a98d98106335a479a5d631b2c51520, type: 3}
   fadeDuration: 5
   playbackSlider: {fileID: 0}
 --- !u!82 &7159195119156651025

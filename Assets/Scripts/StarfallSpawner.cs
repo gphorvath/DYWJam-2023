@@ -3,24 +3,23 @@ using System.Collections.Generic;
 
 public class StarfallSpawner : MonoBehaviour
 {
-    public Star starPrefab;    // Drag the prefab of your falling star here
+    [Header("Spawning Settings")]
+    public int maxSpawnedStars = 50;
+    public Star starPrefab;
+    public float minSpawnInterval = 1f;
+    public float maxSpawnInterval = 3f;
+    private int currentSpawnCount = 0;
 
-    // Define target spawn area
-    public Vector2 spawnAreaCenter = new Vector2(0, 10);  // The center of the spawning area
-    public Vector2 spawnAreaSize = new Vector2(10, 5);    // Width and height of the spawning area
 
-    public float minSpawnInterval = 1f; // Minimum interval between spawns
-    public float maxSpawnInterval = 3f; // Maximum interval between spawns
-
-    public int minSpawnDensity = 1; // Minimum number of stars to spawn per spawn event
-    public int maxSpawnDensity = 5; // Maximum number of stars to spawn per spawn event
+    [Header("Spawn Area")]
+    public Vector2 spawnAreaCenter = new Vector2(0, 10);
+    public Vector2 spawnAreaSize = new Vector2(10, 5);
 
     private bool isPaused = false;
-    private List<Star> spawnedStars = new List<Star>(); // Store references to spawned stars
+    private List<Star> spawnedStars = new List<Star>();
 
     private void Start()
     {
-        // Start the spawn loop
         Invoke("SpawnStar", Random.Range(minSpawnInterval, maxSpawnInterval));
     }
 
@@ -30,9 +29,8 @@ public class StarfallSpawner : MonoBehaviour
 
         if (isPaused)
         {
-            CancelInvoke("SpawnStar"); // Stop the spawn loop
+            CancelInvoke("SpawnStar");
 
-            // Freeze all spawned stars
             foreach (Star star in spawnedStars)
             {
                 if (star) star.StopFalling();
@@ -40,9 +38,8 @@ public class StarfallSpawner : MonoBehaviour
         }
         else
         {
-            Invoke("SpawnStar", Random.Range(minSpawnInterval, maxSpawnInterval)); // Resume the spawn loop
+            Invoke("SpawnStar", Random.Range(minSpawnInterval, maxSpawnInterval));
 
-            // Unfreeze all spawned stars
             foreach (Star star in spawnedStars)
             {
                 if (star) star.StartFalling();
@@ -52,30 +49,25 @@ public class StarfallSpawner : MonoBehaviour
 
     private void SpawnStar()
     {
-        if (!isPaused)
+        if (!isPaused && currentSpawnCount < maxSpawnedStars)
         {
-            int spawnCount = Random.Range(minSpawnDensity, maxSpawnDensity + 1);
-            
-            for (int i = 0; i < spawnCount; i++)
-            {
-                // Calculate random spawn position within the target area
-                Vector3 spawnPosition = new Vector3(
-                    Random.Range(spawnAreaCenter.x - spawnAreaSize.x / 2, spawnAreaCenter.x + spawnAreaSize.x / 2),
-                    Random.Range(spawnAreaCenter.y - spawnAreaSize.y / 2, spawnAreaCenter.y + spawnAreaSize.y / 2),
-                    0
-                );
+            Vector3 spawnPosition = new Vector3(
+                Random.Range(spawnAreaCenter.x - spawnAreaSize.x / 2, spawnAreaCenter.x + spawnAreaSize.x / 2),
+                Random.Range(spawnAreaCenter.y - spawnAreaSize.y / 2, spawnAreaCenter.y + spawnAreaSize.y / 2),
+                0
+            );
 
-                // Create a star at that position and store reference
-                Star newStar = Instantiate(starPrefab, spawnPosition, Quaternion.identity);
-                if (newStar) spawnedStars.Add(newStar);
+            Star newStar = Instantiate(starPrefab, spawnPosition, Quaternion.identity);
+            if (newStar)
+            {
+                spawnedStars.Add(newStar);
+                currentSpawnCount++;
             }
 
-            // Schedule the next spawn
             Invoke("SpawnStar", Random.Range(minSpawnInterval, maxSpawnInterval));
         }
     }
 
-    // This method is called to draw gizmos in the scene view
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

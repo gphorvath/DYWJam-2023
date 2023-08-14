@@ -44,10 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c62b3c20ca76146b25c64e77e62ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpawnedStars: 50
   starPrefab: {fileID: 7165801961780153564, guid: 3a8d4702d8ca8094299f628d01bedd57, type: 3}
-  spawnAreaCenter: {x: 0, y: 10}
-  spawnAreaSize: {x: 50, y: 7}
-  minSpawnInterval: 0.1
-  maxSpawnInterval: 2
-  minSpawnDensity: 3
-  maxSpawnDensity: 5
+  minSpawnInterval: 0.01
+  maxSpawnInterval: 0.3
+  spawnAreaCenter: {x: 0, y: 12}
+  spawnAreaSize: {x: 50, y: 5}
